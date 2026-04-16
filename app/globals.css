@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gold: #f5cb87;
+  --color-green: #1a603c;
+  --color-gray: #888888;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  background-color: #050404d6;
+  color: #ffffff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-black text-white overflow-x-hidden min-h-screen relative font-sans;
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.094);
+  background-blend-mode: overlay;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -10%; left: -10%;
+  width: 50vw; height: 50vw;
+  background: radial-gradient(circle, rgba(245, 203, 135, 0.05) 0%, transparent 60%);
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -10%; right: -10%;
+  width: 50vw; height: 50vw;
+  background: radial-gradient(circle, rgba(26, 96, 60, 0.08) 0%, transparent 60%);
+  z-index: -1;
+}
+
+/* --- CRISTAL RESTAURADO (Sin bloqueos de GPU) --- */
+@utility glass-panel {
+  background: rgba(5, 5, 5, 0.78);
+  backdrop-filter: blur(40px) saturate(160%);
+  -webkit-backdrop-filter: blur(40px) saturate(160%);
+  border: 1px solid rgba(245, 203, 135, 0.18);
+  box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.70), inset 0 1px 1px rgba(255, 255, 255, 0.06);
+  border-radius: 28px;
+  /* Mantenemos solo translateZ que es seguro para el blur */
+  transform: translateZ(0); 
 }
