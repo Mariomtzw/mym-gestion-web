@@ -53,14 +53,8 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-4 lg:px-5 content-center">
           {SERVICES.map((service, index) => (
             <Link key={index} href={service.href} className="group h-full">
-              <GlassCard
-                className="h-full flex flex-col justify-start p-5 lg:p-6 cursor-pointer transition-all duration-300 group-hover:scale-[1.03]"
-                style={{
-                  border: undefined,
-                  transition: "box-shadow 0.3s, border-color 0.3s, transform 0.3s",
-                }}
-                data-hover-gold
-              >
+              {/* Hemos delegado la animación al CSS global para proteger el renderizado en iOS */}
+              <GlassCard className="h-full flex flex-col justify-start p-5 lg:p-6 cursor-pointer">
                 <div className="p-[10px] bg-white/10 rounded-full w-fit mb-4">
                   <service.icon className="text-white" size={18} />
                 </div>

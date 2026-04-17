@@ -44,24 +44,30 @@ body::after {
   pointer-events: none;
 }
 
-/* 3. CRISTAL DEFINITIVO (Optimizado para iOS Safari) */
+/* --- 3. CRISTAL DEFINITIVO (Blindado para iOS y Animaciones) --- */
 @utility glass-panel {
-  /* Opacidad ajustada para que el fondo logre penetrar en móviles */
   background: rgba(10, 10, 10, 0.65);
-  
-  /* Blur en 24px (El máximo rendimiento seguro para iPhone) */
   backdrop-filter: blur(24px) saturate(140%);
   -webkit-backdrop-filter: blur(24px) saturate(140%);
-  
   border-width: 1px;
   border-style: solid;
   border-color: rgba(245, 203, 135, 0.18);
   box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.70), inset 0 1px 1px rgba(255, 255, 255, 0.06);
   border-radius: 28px;
-  transition-property: border-color, transform, box-shadow;
-  transition-duration: 300ms;
   
-  /* El truco de magia: Fuerza a Safari a encender el motor gráfico */
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+  /* Aceleración 3D combinada con la escala base (Garantía para Apple) */
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+  /* Transición suave solo en lo necesario */
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+/* --- NUEVO: Hover nativo programado (Sustituye clases de Tailwind) --- */
+.group:hover .glass-panel {
+  -webkit-transform: translate3d(0, 0, 0) scale(1.03);
+  transform: translate3d(0, 0, 0) scale(1.03);
+  border-color: #f5cb87; /* Borde dorado */
 }
