@@ -44,11 +44,15 @@ body::after {
   pointer-events: none;
 }
 
-/* 3. CRISTAL DEFINITIVO */
+/* 3. CRISTAL DEFINITIVO (Optimizado para iOS Safari) */
 @utility glass-panel {
-  background: rgba(5, 5, 5, 0.78);
-  backdrop-filter: blur(40px) saturate(160%);
-  -webkit-backdrop-filter: blur(40px) saturate(160%); /* Prefijo crucial para Apple */
+  /* Opacidad ajustada para que el fondo logre penetrar en móviles */
+  background: rgba(10, 10, 10, 0.65);
+  
+  /* Blur en 24px (El máximo rendimiento seguro para iPhone) */
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  
   border-width: 1px;
   border-style: solid;
   border-color: rgba(245, 203, 135, 0.18);
@@ -56,4 +60,8 @@ body::after {
   border-radius: 28px;
   transition-property: border-color, transform, box-shadow;
   transition-duration: 300ms;
+  
+  /* El truco de magia: Fuerza a Safari a encender el motor gráfico */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
