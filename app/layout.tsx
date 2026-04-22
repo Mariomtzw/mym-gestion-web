@@ -30,7 +30,7 @@ export default function RootLayout({
     // 3. Inyectamos las variables de las fuentes en la etiqueta HTML base
     <html lang="es" className={`${sansFont.variable} ${serifFont.variable}`}>
       {/* 4. Aplicamos font-sans por defecto a todo el cuerpo de la página */}
-      <body className="font-sans antialiased text-white bg-black">
+      <body className="font-sans antialiased text-white">
         {children}
       </body>
     </html>
