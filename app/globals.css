@@ -4,7 +4,13 @@
   --color-gold: #f5cb87;
   --color-green: #1a603c;
   --color-gray: #888888;
+  
+  /* Conectamos Tailwind a las fuentes del Layout */
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
 }
+
+/* ... el resto de tu código (body y @utility glass-panel) se queda exactamente igual ... */
 
 :root {
   background-color: #000000;

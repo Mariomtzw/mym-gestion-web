@@ -1,17 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const sourceSerif = Source_Serif_4({ 
-  subsets: ["latin"], 
-  style: ['normal', 'italic'],
-  variable: "--font-serif" 
+// 1. Configuramos la tipografía para textos y párrafos (Moderna y legible)
+const sansFont = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans", // Creamos una variable CSS para Tailwind
+  display: "swap",
+});
+
+// 2. Configuramos la tipografía para títulos (Elegante y corporativa)
+const serifFont = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif", // Creamos otra variable CSS
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "M&M Gestión y Administración",
-  description: "Firma legal especializada en defensa técnica y representación administrativa.",
+  description: "Firma legal especializada en defensa técnica, cumplimiento normativo y resolución de controversias.",
 };
 
 export default function RootLayout({
@@ -20,8 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={`${inter.variable} ${sourceSerif.variable} font-sans antialiased`}>
+    // 3. Inyectamos las variables de las fuentes en la etiqueta HTML base
+    <html lang="es" className={`${sansFont.variable} ${serifFont.variable}`}>
+      {/* 4. Aplicamos font-sans por defecto a todo el cuerpo de la página */}
+      <body className="font-sans antialiased text-white bg-black">
         {children}
       </body>
     </html>
