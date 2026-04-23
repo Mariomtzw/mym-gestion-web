@@ -32,7 +32,6 @@ export default function RootLayout({
       {/* 4. Aplicamos font-sans por defecto a todo el cuerpo de la página */}
       <body className="font-sans antialiased text-white">
         {children}
-        <WhatsAppButton />
       </body>
     </html>
   );
