@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { WhatsAppButton } from "@/components/WhatsAppButton"; // 1. IMPORTAR AQUÍ
 
 // 1. Configuramos la tipografía para textos y párrafos (Moderna y legible)
 const sansFont = Inter({
@@ -32,6 +33,7 @@ export default function RootLayout({
       {/* 4. Aplicamos font-sans por defecto a todo el cuerpo de la página */}
       <body className="font-sans antialiased text-white">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
