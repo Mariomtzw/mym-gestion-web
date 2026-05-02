@@ -44,7 +44,7 @@ export default function Home() {
               <Mail size={15} className="text-white" /> <span className="text-sm text-white">Correo</span>
             </a>
             <a href="https://www.tiktok.com/@mymgestion" target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/10 bg-white/5 px-5 py-2 flex items-center gap-2 hover:border-gold hover:bg-white/10 hover:scale-105 transition-all duration-300">
-              <Video size={15} className="text-white" /> <span className="text-sm text-white">Plataforma Digital</span>
+              {/*<Video size={15} className="text-white" /> <span className="text-sm text-white">Plataforma Digital</span>*/}
             </a>
           </div>
         </div>
